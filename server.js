@@ -32,6 +32,7 @@ app.post('/addBudget',(req,res)=>{
         res.json('Added budget')
     })
 })
+
 app.listen(process.env.PORT || PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
 })
