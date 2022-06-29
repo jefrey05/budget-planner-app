@@ -37,7 +37,7 @@ app.post('/addBudget',(req,res)=>{
 })
 
 app.put('/addExpense',(req,res)=>{
-    db.collection('budget').insertOne({expenses:req.body.expense})
+    db.collection('budget').insertOne({expenses:req.body.expense,cost:req.body.cost})
     .then(result=>{
         console.log("inserted expense");
         res.json('Added expense')

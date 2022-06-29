@@ -3,6 +3,7 @@ addExpense.addEventListener('click',add)
 
 async function add(){
     const expenses = document.querySelector('input').value;
+    const cost = document.querySelector('#cost').value;
 
     try {
         const response = await fetch('addExpense',{
@@ -10,6 +11,7 @@ async function add(){
          headers:{'Content-type':'application/json'},
          body:JSON.stringify({
             expense:expenses,
+            cost:cost
          }),
         })
 
