@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Expenses</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center mt-5" >
+        <input type="text" placeholder="Add Expenses" >
+        <div>
+          <button class="btn btn btn-success" type="button" id="addExpenses">Button</button>
+        </div>
+      </div>
+
+          <table class="table mt-5">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">no.</th>
+                <th scope="col">Expense</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% let counter = 0 %>
+                <th scope="row"><%=counter%></th>
+                <td>Mark</td>
+                <td>100</td>
+                <td><button type="button" class="btn btn-success btn-sm">Success</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <script src="js\expenses.js"></script>
+</body>
+</html>

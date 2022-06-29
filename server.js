@@ -23,6 +23,9 @@ app.use(express.json())
 app.get('/',(req,res)=>{
     res.render('index.ejs')
 })
+app.get('/expenses',(req,res)=>{
+    res.render('expenses.ejs');
+})
 
 app.post('/addBudget',(req,res)=>{
     console.log(req.body)
@@ -30,6 +33,14 @@ app.post('/addBudget',(req,res)=>{
     .then(result=>{
         console.log('Added budget');
         res.json('Added budget')
+    })
+})
+
+app.put('/addExpense',(req,res)=>{
+    db.collection('budget').insertOne({expenses:req.body.expense})
+    .then(result=>{
+        console.log("inserted expense");
+        res.json('Added expense')
     })
 })
 
