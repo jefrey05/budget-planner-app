@@ -10,15 +10,24 @@
     <title>Expenses</title>
 </head>
 <body>
-    <div class="d-flex justify-content-center mt-5" >
-        <input type="text" placeholder="Add Expenses" > 
-    
-    <input type="number" id="cost" placeholder="insert Cost">
-  
-        <div>
-          <button class="btn btn btn-success" type="button" id="addExpenses">Button</button>
+  <form class="col-lg-3 offset-lg-4" action="/addExpense" method="POST">
+    <div class="row justify-content-center">
+      <div>
+        <label class="sr-only" for="inlineFormInputName">Expense:</label>
+        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Input Expense">
+      </div>
+      <div>
+        <label class="sr-only" for="inlineFormInputGroupUsername">Cost:</label>
+        <div class="input-group">
+          
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Cost">
         </div>
       </div>
+      <div class="mt-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
 
           <table class="table mt-5">
             <thead class="thead-light">
@@ -39,6 +48,6 @@
               </tr>
             </tbody>
           </table>
-          <script src="js\expenses.js"></script>
+          <!-- <script src="js\expenses.js"></script> -->
 </body>
 </html>

@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
     res.render('index.ejs')
 })
 app.get('/expenses',(req,res)=>{
-    res.render('expenses.ejs');
+   //db.collection('expenses')
 })
 
 app.post('/addBudget',(req,res)=>{
@@ -36,11 +36,11 @@ app.post('/addBudget',(req,res)=>{
     })
 })
 
-app.put('/addExpense',(req,res)=>{
-    db.collection('budget').insertOne({expenses:req.body.expense,cost:req.body.cost})
+app.post('/addExpense',(req,res)=>{
+    db.collection('expenses').insertOne({expenses:req.body.expense,cost:req.body.cost})
     .then(result=>{
         console.log("inserted expense");
-        res.json('Added expense')
+        res.redirect('/expenses')
     })
 })
 
