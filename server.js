@@ -26,9 +26,17 @@ app.get('/',(req,res)=>{
 app.get('/expenses',(req,res)=>{
    let cursor1 = db.collection('expenses').find().toArray();
    let cursor2 = db.collection('budget').find().toArray();
+   let cursor3 = db.collection('expenses').find().toArray();
+   
    Promise.all([cursor1,cursor2])
    .then(data=>{
-    res.render('expenses.ejs',{info:data})
+    let sum = 0;
+    //console.log(data[0])
+    data[0].forEach(obj=>{
+        sum+=Number(obj.cost)
+    })
+    console.log(data)
+    res.render('expenses.ejs',{info:data,spent:sum})
    })
    
 })

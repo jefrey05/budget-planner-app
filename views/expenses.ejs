@@ -9,6 +9,7 @@
 
     <title>Expenses</title>
 </head>
+<% let counter = 0 %>
 <body>
   <a class="nav-item nav-link active" href="/">Home <span class="sr-only"></span></a>
   <form action="/addExpense"  method="POST" class="col-lg-3 offset-lg-4" >
@@ -41,9 +42,9 @@
             </thead>
             <tbody>
               
-                <% let counter = 1 %>
+                
 
-                <% for(let i = 0; i < info.length;i++){%>
+                <% for(let i = 0; i < info[0].length;i++){%>
 
                   <tr>
                 <th scope="row"><%=counter++%></th>
@@ -61,8 +62,8 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Initial Budget: <%= info[1][0].budget %></li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-group-item">Total expense: <%=counter%></li>
+              <li class="list-group-item">Amount spent:<%=spent%></li>
             </ul>
           </div>
 
