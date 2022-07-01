@@ -15,7 +15,8 @@ async function addBudget(){
 
         const data = await response.json();
         console.log(data);
-        location.reload();
+        document.querySelector('#div').classList.add("hide");
+        //location.reload();
 
 
     }catch(err){

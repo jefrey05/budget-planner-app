@@ -31,12 +31,14 @@ app.get('/expenses',(req,res)=>{
    Promise.all([cursor1,cursor2])
    .then(data=>{
     let sum = 0;
+    //console.log(data[1][0].budget)
     //console.log(data[0])
     data[0].forEach(obj=>{
         sum+=Number(obj.cost)
     })
     console.log(data)
-    res.render('expenses.ejs',{info:data,spent:sum})
+    let remaining = data[1][0].budget - sum;
+    res.render('expenses.ejs',{info:data,spent:sum,remaining})
    })
    
 })

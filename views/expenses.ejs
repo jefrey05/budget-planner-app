@@ -16,13 +16,13 @@
     <div class="row justify-content-center">
       <div>
         <label class="sr-only" for="inlineFormInputName">Expense:</label>
-        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Input Expense" name="expense">
+        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Input Expense" name="expense" required>
       </div>
       <div>
         <label class="sr-only" for="inlineFormInputGroupUsername">Cost:</label>
         <div class="input-group">
           
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Cost" name="cost">
+          <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="Cost" name="cost" required>
         </div>
       </div>
       <div class="mt-1">
@@ -62,8 +62,9 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Initial Budget: <%= info[1][0].budget %></li>
-              <li class="list-group-item">Total expense: <%=counter%></li>
-              <li class="list-group-item">Amount spent:<%=spent%></li>
+              <li class="list-group-item">Total expense: <%= counter%></li>
+              <li class="list-group-item">Amount spent: <%= spent%></li>
+              <li class="list-group-item">Amount Left: <%= remaining%></li>
             </ul>
           </div>
 
