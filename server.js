@@ -24,10 +24,13 @@ app.get('/',(req,res)=>{
     res.render('index.ejs')
 })
 app.get('/expenses',(req,res)=>{
-   db.collection('expenses').find().toArray()
+   let cursor1 = db.collection('expenses').find().toArray();
+   let cursor2 = db.collection('budget').find().toArray();
+   Promise.all([cursor1,cursor2])
    .then(data=>{
     res.render('expenses.ejs',{info:data})
    })
+   
 })
 
 app.post('/addBudget',(req,res)=>{
