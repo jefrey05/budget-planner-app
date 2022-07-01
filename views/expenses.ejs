@@ -10,6 +10,7 @@
     <title>Expenses</title>
 </head>
 <body>
+  <a class="nav-item nav-link active" href="/">Home <span class="sr-only"></span></a>
   <form action="/addExpense"  method="POST" class="col-lg-3 offset-lg-4" >
     <div class="row justify-content-center">
       <div>
@@ -47,12 +48,15 @@
                   <tr>
                 <th scope="row"><%=counter++%></th>
                 <td><%= info[i].expense%></td>
-                <td><%= info[i].cost%></td>
+                <td>$<%= info[i].cost%></td>
                 <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
               </tr>
               <%} %>
             </tbody>
           </table>
+
+
+
           <!-- <script src="js\expenses.js"></script> -->
           
 </body>
