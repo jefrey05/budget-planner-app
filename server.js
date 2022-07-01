@@ -24,7 +24,10 @@ app.get('/',(req,res)=>{
     res.render('index.ejs')
 })
 app.get('/expenses',(req,res)=>{
-   //db.collection('expenses')
+   db.collection('expenses').find().toArray()
+   .then(data=>{
+    res.render('expenses.ejs',{info:data})
+   })
 })
 
 app.post('/addBudget',(req,res)=>{
@@ -37,11 +40,13 @@ app.post('/addBudget',(req,res)=>{
 })
 
 app.post('/addExpense',(req,res)=>{
-    db.collection('expenses').insertOne({expenses:req.body.expense,cost:req.body.cost})
+    console.log(req.body)
+    db.collection('expenses').insertOne({expense:req.body.expense,cost:req.body.cost})
     .then(result=>{
-        console.log("inserted expense");
-        res.redirect('/expenses')
+       console.log('Expense added')
+       res.redirect('/expenses')
     })
+   
 })
 
 app.listen(process.env.PORT || PORT,()=>{

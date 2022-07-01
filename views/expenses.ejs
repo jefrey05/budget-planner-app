@@ -10,17 +10,17 @@
     <title>Expenses</title>
 </head>
 <body>
-  <form class="col-lg-3 offset-lg-4" action="/addExpense" method="POST">
+  <form action="/addExpense"  method="POST" class="col-lg-3 offset-lg-4" >
     <div class="row justify-content-center">
       <div>
         <label class="sr-only" for="inlineFormInputName">Expense:</label>
-        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Input Expense">
+        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Input Expense" name="expense">
       </div>
       <div>
         <label class="sr-only" for="inlineFormInputGroupUsername">Cost:</label>
         <div class="input-group">
           
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Cost">
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Cost" name="cost">
         </div>
       </div>
       <div class="mt-1">
@@ -39,15 +39,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <% let counter = 0 %>
-                <th scope="row"><%=counter%></th>
-                <td>Mark</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-success btn-sm">Success</button></td>
+              
+                <% let counter = 1 %>
+
+                <% for(let i = 0; i < info.length;i++){%>
+
+                  <tr>
+                <th scope="row"><%=counter++%></th>
+                <td><%= info[i].expense%></td>
+                <td><%= info[i].cost%></td>
+                <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
               </tr>
+              <%} %>
             </tbody>
           </table>
           <!-- <script src="js\expenses.js"></script> -->
+          
 </body>
 </html>
